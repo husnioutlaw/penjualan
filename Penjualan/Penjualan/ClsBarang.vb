@@ -1,4 +1,6 @@
 ﻿Imports System.Data.Sql
+Imports System.Data.SqlClient
+
 Public Class ClsBarang
     Private fkdbrg As String
     Private fnmbrg As String
@@ -42,7 +44,13 @@ Public Class ClsBarang
     End Property
 
     Public Function simpan() As Integer
-
+        sql = "insert into barang(kdbrg,nmbrg,satuan,stok) values(@1,@2,@3,@4)"
+        cmmd = New SqlCommand(sql, cnn)
+        cmmd.Parameters.AddWithValue("@1", fkdbrg)
+        cmmd.Parameters.AddWithValue("@2", fnmbrg)
+        cmmd.Parameters.AddWithValue("@3", fsatuan)
+        cmmd.Parameters.AddWithValue("@4", fstok)
+        Return cmmd.ExecuteNonQuery
     End Function
 
     Public Function ubah() As Integer
