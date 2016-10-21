@@ -54,7 +54,7 @@ Public Class ClsBarang
     End Function
 
     Public Function ubah() As Integer
-
+        'coba push'
     End Function
 
     Public Function hapus() As Integer
